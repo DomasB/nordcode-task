@@ -1,14 +1,16 @@
 <template>
   <div class="gallery-image">
-    <div class="image" :style="{backgroundImage: `url(${getImage(image.src)})`}" />
-    <div class="image-title">{{image.name}}</div>
-    <div class="image-description">{{image.description}}</div>
+    <router-link :to="`/comments/${image.id}`">
+      <div class="image" :style="{backgroundImage: `url(${getImage(image.src)})`}" />
+      <div class="image-title">{{image.name}}</div>
+      <div class="image-description">{{image.description}}</div>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SubmitButton',
+  name: 'GalleryImage',
   props: {
     image: Object,
   },
