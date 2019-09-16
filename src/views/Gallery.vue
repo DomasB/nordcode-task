@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import MainText from '@/components/MainText.vue';
-import Separator from '@/components/Separator.vue';
-import UploadForm from '@/components/UploadForm.vue';
-import GalleryImage from '@/components/GalleryImage.vue';
-import Pagination from '@/components/Pagination.vue';
+import MainText from '@/components/common/MainText.vue';
+import Separator from '@/components/common/Separator.vue';
+import UploadForm from '@/components/gallery/UploadForm.vue';
+import GalleryImage from '@/components/gallery/GalleryImage.vue';
+import Pagination from '@/components/gallery/Pagination.vue';
 import mockData from '../../mockData.json';
 
 export default {

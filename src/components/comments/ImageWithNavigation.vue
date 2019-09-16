@@ -34,7 +34,7 @@ export default {
   methods: {
     getImage(src) {
       // eslint-disable-next-line
-      return require(`../assets/${src}`);
+      return require(`@/assets/${src}`);
     },
   },
 };

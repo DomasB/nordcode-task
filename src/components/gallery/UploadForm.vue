@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import SubmitButton from '@/components/form/SubmitButton.vue';
-import InputField from '@/components/form/InputField.vue';
-import TextAreaField from '@/components/form/TextAreaField.vue';
+import SubmitButton from '@/components/common/form/SubmitButton.vue';
+import InputField from '@/components/common/form/InputField.vue';
+import TextAreaField from '@/components/common/form/TextAreaField.vue';
 
 export default {
   name: 'UploadForm',

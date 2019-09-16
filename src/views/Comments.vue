@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import MainText from '@/components/MainText.vue';
-import ImageWithNavigation from '@/components/ImageWithNavigation.vue';
-import Comment from '@/components/Comment.vue';
-import Separator from '@/components/Separator.vue';
-import CommentForm from '@/components/CommentForm.vue';
+import MainText from '@/components/common/MainText.vue';
+import ImageWithNavigation from '@/components/comments/ImageWithNavigation.vue';
+import Comment from '@/components/comments/Comment.vue';
+import Separator from '@/components/common/Separator.vue';
+import CommentForm from '@/components/comments/CommentForm.vue';
 import mockData from '../../mockData.json';
 
 export default {
