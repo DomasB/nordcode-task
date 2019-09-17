@@ -1,5 +1,5 @@
 <template>
-  <button class="submit-button">{{text}}</button>
+  <button class="submit-button" type="submit">{{text}}</button>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style lang="sass">
-  @import "@/styles/_variables.scss"
+  @import "@/styles/_variables.sass"
   .submit-button
     background-color: $color-blue
 </style>

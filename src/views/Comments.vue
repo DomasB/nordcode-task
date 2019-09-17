@@ -2,7 +2,7 @@
   <div>
     <MainText />
     <ImageWithNavigation
-      :image="findImage()"
+      :image="findImage(currentId)"
       :currentId="currentId"
       :maxId="maxId"
     />
@@ -14,7 +14,7 @@
       :user="findUser(comment.userId)"
     />
     <Separator />
-    <CommentForm />
+    <CommentForm @comment="addComment" />
   </div>
 </template>
 
@@ -35,6 +35,12 @@ export default {
     Separator,
     CommentForm,
   },
+  data() {
+    return {
+      allComments: mockData.comments,
+      users: mockData.users,
+    };
+  },
   computed: {
     currentId() {
       return parseInt(this.$route.params.id, 10);
@@ -43,16 +49,30 @@ export default {
       return mockData.images.length;
     },
     comments() {
-      return mockData.comments.filter(({ imageId }) => imageId === this.currentId);
+      return this.allComments.filter(({ imageId }) => imageId === this.currentId);
     },
   },
   methods: {
-    findImage() {
+    findImage(currentId) {
       return mockData.images
-        .find(({ id }) => parseInt(id, 10) === parseInt(this.$route.params.id, 10));
+        .find(({ id }) => id === currentId);
     },
     findUser(userId) {
-      return mockData.users.find(({ id }) => id === userId);
+      return this.users.find(({ id }) => id === userId);
+    },
+    addComment(payload) {
+      const userId = this.users.length + 1;
+      this.allComments.push({
+        id: mockData.comments.length + 1,
+        imageId: this.currentId,
+        userId,
+        text: payload.comment,
+      });
+      this.users.push({
+        id: userId,
+        name: payload.userName,
+        image: 'profilePictures/unknown.jpg',
+      });
     },
   },
 };

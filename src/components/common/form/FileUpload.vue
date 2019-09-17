@@ -2,11 +2,10 @@
   <div>
     <label class="form-label" :for="name">{{label}}</label>
     <input
-      type="text"
+      type="file"
       :value="value"
       @input="$emit('input', $event.target.value)"
       :id="name"
-      :placeholder="placeholder"
     />
     <div v-if="errors[name]" class="error">
       {{errors[name]}}
@@ -16,12 +15,11 @@
 
 <script>
 export default {
-  name: 'InputField',
+  name: 'FileUpload',
   props: {
     value: String,
     name: String,
     label: String,
-    placeholder: String,
     errors: Object,
   },
 };

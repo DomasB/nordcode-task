@@ -6,7 +6,11 @@
     <Separator />
     <GalleryImage v-for="image in images" :key="image.id" :image="image" />
     <Separator />
-    <Pagination totalPages="3" currentPage="1" />
+    <Pagination
+      :totalPages="totalPages"
+      :currentPage="currentPage"
+      @pageChange="setPage"
+    />
   </div>
 </template>
 
@@ -29,8 +33,26 @@ export default {
   },
   data() {
     return {
-      images: mockData.images.slice(0, 8),
+      totalImages: mockData.images.length,
+      imagesPerPage: 8,
+      currentPage: 1,
     };
+  },
+  computed: {
+    images() {
+      const indexStart = this.currentPage * this.imagesPerPage - this.imagesPerPage;
+      const indexEnd = this.currentPage * this.imagesPerPage;
+      console.log(indexStart, indexEnd);
+      return mockData.images.slice(indexStart, indexEnd);
+    },
+    totalPages() {
+      return Math.ceil(this.totalImages / this.imagesPerPage);
+    },
+  },
+  methods: {
+    setPage(page) {
+      this.currentPage = page;
+    },
   },
 };
 </script>

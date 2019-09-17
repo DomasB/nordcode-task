@@ -8,6 +8,9 @@
       :id="name"
       :placeholder="placeholder"
     />
+    <div v-if="errors[name]" class="error">
+      {{errors[name]}}
+    </div>
   </div>
 </template>
 
@@ -19,6 +22,7 @@ export default {
     name: String,
     label: String,
     placeholder: String,
+    errors: Object,
   },
 };
 </script>

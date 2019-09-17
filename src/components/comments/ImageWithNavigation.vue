@@ -41,14 +41,7 @@ export default {
 </script>
 
 <style lang="sass">
-  @mixin triangleCommon()
-    position: relative
-    content: ''
-    display: block
-    width: 0
-    height: 0
-    top: 20px
-    border-style: solid
+  @import "@/styles/_mixins.sass"
 
   .navigate-button
     position: relative
