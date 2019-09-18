@@ -1,20 +1,32 @@
 <template>
-  <div class="gallery">
-    <MainText />
-    <Separator />
-    <UploadForm />
-    <Separator />
-    <GalleryImage v-for="image in images" :key="image.id" :image="image" />
-    <Separator />
-    <Pagination
-      :totalPages="totalPages"
-      :currentPage="currentPage"
-      @pageChange="setPage"
-    />
+  <div>
+    <NarrowView>
+      <MainText />
+      <Separator />
+      <UploadForm />
+      <Separator />
+    </NarrowView>
+    <div class="gallery-container">
+      <GalleryImage
+        v-for="image in images"
+        :key="image.id"
+        :image="image"
+        class="gallery-image"
+      />
+    </div>
+    <NarrowView>
+      <Separator />
+      <Pagination
+        :totalPages="totalPages"
+        :currentPage="currentPage"
+        @pageChange="setPage"
+      />
+    </NarrowView>
   </div>
 </template>
 
 <script>
+import NarrowView from '@/components/common/NarrowView.vue';
 import MainText from '@/components/common/MainText.vue';
 import Separator from '@/components/common/Separator.vue';
 import UploadForm from '@/components/gallery/UploadForm.vue';
@@ -25,6 +37,7 @@ import mockData from '../../mockData.json';
 export default {
   name: 'Gallery',
   components: {
+    NarrowView,
     MainText,
     Separator,
     UploadForm,
@@ -56,3 +69,16 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+  .gallery-container
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    margin-bottom: -3vh
+  .gallery-image
+    width: 20vw
+    min-widht: 100px
+    text-align: left
+    margin-bottom: 3vh
+</style>

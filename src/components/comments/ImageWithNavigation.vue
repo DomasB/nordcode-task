@@ -1,5 +1,5 @@
 <template>
-  <div class="image-navigation">
+  <div>
     <div class="image" :style="{backgroundImage: `url(${getImage(image.src)})`}">
       <router-link
         v-if="previousImageId > 0"
@@ -67,11 +67,12 @@ export default {
       border-color: transparent transparent transparent black
 
   .image
-    width: 80vw
+    width: 100%
     height: 20vw
     display: flex
     justify-content: space-between
     background-position: center center
     background-size: cover
+    margin: 20px 0
 
 </style>

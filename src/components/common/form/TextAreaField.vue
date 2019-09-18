@@ -7,6 +7,8 @@
       @input="$emit('input', $event.target.value)"
       :id="name"
       :placeholder="placeholder"
+      rows="6"
+      :class="{textarea: true, 'error-field': errors[name]}"
     />
     <div v-if="errors[name]" class="error">
       {{errors[name]}}
@@ -28,4 +30,8 @@ export default {
 </script>
 
 <style lang="sass">
+  @import "@/styles/_mixins.sass"
+  .textarea
+    @include inputGeneric()
+    resize: none
 </style>

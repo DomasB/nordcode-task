@@ -1,3 +1,4 @@
+@import "@/styles/_variables.sass"
 @mixin triangleCommon()
     position: relative
     content: ''
@@ -6,3 +7,20 @@
     height: 0
     top: 20px
     border-style: solid
+
+@mixin inputGeneric()
+    padding: 10px
+    margin: 10px 0
+    background-color: $color-grey-brown
+    border-radius: 10px
+    border: 1px solid $color-grey
+
+@mixin genericButton($color)
+    background-color: $color
+    font-size: 1.2em
+    line-height: 1em
+    text-transform: uppercase
+    color: white
+    font-weight: bold
+    border: 1px solid $color-grey
+    text-align: center

@@ -10,6 +10,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
-
+<style lang="sass">
+  #app
+    max-width: 90vw
+    min-width: 600px
+    margin: 0 auto
+    font-family: "Trebuchet MS", Helvetica, sans-serif
+    text-align: center
 </style>

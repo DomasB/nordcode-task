@@ -2,6 +2,7 @@
   <div>
     <label class="form-label" :for="name">{{label}}</label>
     <input
+      :class="{'text-input': true, 'error-field': errors[name]}"
       type="text"
       :value="value"
       @input="$emit('input', $event.target.value)"
@@ -28,4 +29,9 @@ export default {
 </script>
 
 <style lang="sass">
+  @import "@/styles/_mixins.sass"
+  .form-label
+    font-weight: bold
+  .text-input
+    @include inputGeneric()
 </style>

@@ -1,24 +1,29 @@
 <template>
   <div>
-    <MainText />
+    <NarrowView>
+      <MainText />
+    </NarrowView>
     <ImageWithNavigation
       :image="findImage(currentId)"
       :currentId="currentId"
       :maxId="maxId"
     />
-    <span class="comments-label">Comments:</span>
-    <Comment
-      v-for="comment in comments"
-      :key="comment.id"
-      :comment="comment"
-      :user="findUser(comment.userId)"
-    />
-    <Separator />
-    <CommentForm @comment="addComment" />
+    <NarrowView>
+      <div class="comments-label">Comments:</div>
+      <Comment
+        v-for="comment in comments"
+        :key="comment.id"
+        :comment="comment"
+        :user="findUser(comment.userId)"
+      />
+      <Separator />
+      <CommentForm @comment="addComment" />
+    </NarrowView>
   </div>
 </template>
 
 <script>
+import NarrowView from '@/components/common/NarrowView.vue';
 import MainText from '@/components/common/MainText.vue';
 import ImageWithNavigation from '@/components/comments/ImageWithNavigation.vue';
 import Comment from '@/components/comments/Comment.vue';
@@ -29,6 +34,7 @@ import mockData from '../../mockData.json';
 export default {
   name: 'Comments',
   components: {
+    NarrowView,
     MainText,
     ImageWithNavigation,
     Comment,
@@ -79,5 +85,9 @@ export default {
 </script>
 
 <style lang="sass">
-
+  .comments-label
+    widht: 100%
+    text-align: left
+    font-weight: bold
+    font-size: 1em
 </style>

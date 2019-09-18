@@ -6,6 +6,7 @@
       label="Name"
       placeholder="Alex"
       :errors="formErrors"
+      class="input"
     />
     <InputField
       v-model="email"
@@ -13,6 +14,7 @@
       label="Email"
       placeholder=""
       :errors="formErrors"
+      class="input"
     />
     <TextAreaField
       v-model="comment"
@@ -20,6 +22,7 @@
       label="Comment"
       placeholder="Type something here..."
       :errors="formErrors"
+      class="input"
     />
     <SubmitButton text="Send" />
   </form>
@@ -83,4 +86,18 @@ export default {
 </script>
 
 <style lang="sass">
+.comment-form
+    display: flex
+    flex-direction: column
+.input
+  display: flex
+  flex-direction: column
+  text-align: left
+  padding: 5px 0
+.error
+  color: red
+  font-size: 0.7em
+  margin: -6px 5px 6px
+.error-field
+  border-color: red
 </style>

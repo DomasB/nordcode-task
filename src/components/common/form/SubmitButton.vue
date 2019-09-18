@@ -12,7 +12,12 @@ export default {
 </script>
 
 <style lang="sass">
-  @import "@/styles/_variables.sass"
+  @import "@/styles/_mixins.sass"
   .submit-button
-    background-color: $color-blue
+    @include genericButton($color-blue)
+    cursor: pointer
+    border-radius: 10px
+    width: 50%
+    padding: 10px 0px
+    margin-left: auto
 </style>
