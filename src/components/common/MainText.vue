@@ -1,7 +1,9 @@
 <template>
   <div class="main-text">
     <router-link to="/">
-      <h1>H1 - TEST</h1>
+      <h1>
+        H1 - TEST
+      </h1>
     </router-link>
     <h2>
       H2 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.

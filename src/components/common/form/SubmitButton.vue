@@ -1,5 +1,10 @@
 <template>
-  <button class="submit-button" type="submit">{{text}}</button>
+  <button
+    type="submit"
+    class="submit-button"
+  >
+    {{text}}
+  </button>
 </template>
 
 <script>
@@ -13,6 +18,7 @@ export default {
 
 <style lang="sass">
   @import "@/styles/_mixins.sass"
+
   .submit-button
     @include genericButton($color-blue)
     cursor: pointer

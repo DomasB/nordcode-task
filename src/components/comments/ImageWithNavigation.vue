@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="image" :style="{backgroundImage: `url(${getImage(image.src)})`}">
+    <div
+      :style="{ backgroundImage: `url(${getImage(image.src)})` }"
+      class="image"
+    >
       <router-link
         v-if="previousImageId > 0"
         :to="`/comments/${previousImageId}`"
@@ -25,10 +28,14 @@ export default {
   },
   computed: {
     previousImageId() {
-      return this.image.id === 1 ? 0 : this.image.id - 1;
+      return this.image.id === 1
+        ? 0
+        : this.image.id - 1;
     },
     nextImageId() {
-      return this.image.id === this.maxId ? 0 : this.image.id + 1;
+      return this.image.id === this.maxId
+        ? 0
+        : this.image.id + 1;
     },
   },
   methods: {
@@ -49,22 +56,22 @@ export default {
     margin: 10px
     width: 60px
     height: 60px
-    background-color: white
+    background-color: $color-white
 
   .navigate-left
     &:before
       @include triangleCommon()
       left: 15px
-      border-width: 10.0px 20.0px 10.0px 0
-      border-color: transparent black transparent transparent
+      border-width: 10px 20px 10px 0
+      border-color: transparent $color-black transparent transparent
 
   .navigate-right
     margin-left: auto
     &:before
       @include triangleCommon()
       left: 20px
-      border-width: 10.0px 0 10.0px 20.0px
-      border-color: transparent transparent transparent black
+      border-width: 10px 0 10px 20px
+      border-color: transparent transparent transparent $color-black
 
   .image
     width: 100%

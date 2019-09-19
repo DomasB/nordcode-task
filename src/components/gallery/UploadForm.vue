@@ -1,5 +1,8 @@
 <template>
-  <form class="upload-form" @submit="validate">
+  <form
+    @submit="validate"
+    class="upload-form"
+  >
     <InputField
       v-model="fileName"
       name="file-name"
@@ -56,11 +59,9 @@ export default {
 
       this.formErrors = {};
       if (this.fileName && this.file && isFileValid) return true;
-      console.log(this.formErrors);
       if (!this.fileName) this.setError('file-name', 'Name is required');
       if (!isFileValid) this.setError('file-upload', 'Only .jpg and .png files allowed');
       if (!this.file) this.setError('file-upload', 'Please select the file');
-      console.log(this.formErrors);
 
       event.preventDefault();
       return false;
@@ -73,18 +74,23 @@ export default {
 </script>
 
 <style lang="sass">
+  @import "@/styles/_variables.sass"
+
   .upload-form
     display: flex
     flex-direction: column
+
   .input
     display: flex
     flex-direction: column
     text-align: left
     padding: 5px 0
+
   .error
-    color: red
+    color: $color-red
     font-size: 0.7em
     margin: -6px 5px 6px
+
   .error-field
-    border-color: red
+    border-color: $color-red
 </style>

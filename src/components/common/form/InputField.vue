@@ -1,15 +1,23 @@
 <template>
   <div>
-    <label class="form-label" :for="name">{{label}}</label>
+    <label
+      :for="name"
+      class="form-label"
+    >
+      {{label}}
+    </label>
     <input
-      :class="{'text-input': true, 'error-field': errors[name]}"
       type="text"
       :value="value"
-      @input="$emit('input', $event.target.value)"
       :id="name"
       :placeholder="placeholder"
+      @input="$emit('input', $event.target.value)"
+      :class="{'text-input': true, 'error-field': errors[name]}"
     />
-    <div v-if="errors[name]" class="error">
+    <div
+      v-if="errors[name]"
+      class="error"
+    >
       {{errors[name]}}
     </div>
   </div>
@@ -30,8 +38,10 @@ export default {
 
 <style lang="sass">
   @import "@/styles/_mixins.sass"
+
   .form-label
     font-weight: bold
+
   .text-input
     @include inputGeneric()
 </style>

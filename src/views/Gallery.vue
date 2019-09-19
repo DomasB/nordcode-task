@@ -55,7 +55,7 @@ export default {
     images() {
       const indexStart = this.currentPage * this.imagesPerPage - this.imagesPerPage;
       const indexEnd = this.currentPage * this.imagesPerPage;
-      console.log(indexStart, indexEnd);
+
       return mockData.images.slice(indexStart, indexEnd);
     },
     totalPages() {
@@ -76,6 +76,7 @@ export default {
     flex-wrap: wrap
     justify-content: space-between
     margin-bottom: -3vh
+
   .gallery-image
     width: 20vw
     min-widht: 100px

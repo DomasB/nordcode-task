@@ -6,10 +6,12 @@
     <ImageWithNavigation
       :image="findImage(currentId)"
       :currentId="currentId"
-      :maxId="maxId"
+      :maxId="maxImageId"
     />
     <NarrowView>
-      <div class="comments-label">Comments:</div>
+      <div class="comments-label">
+        Comments:
+      </div>
       <Comment
         v-for="comment in comments"
         :key="comment.id"
@@ -51,11 +53,12 @@ export default {
     currentId() {
       return parseInt(this.$route.params.id, 10);
     },
-    maxId() {
+    maxImageId() {
       return mockData.images.length;
     },
     comments() {
-      return this.allComments.filter(({ imageId }) => imageId === this.currentId);
+      return this.allComments
+        .filter(({ imageId }) => imageId === this.currentId);
     },
   },
   methods: {
@@ -64,7 +67,8 @@ export default {
         .find(({ id }) => id === currentId);
     },
     findUser(userId) {
-      return this.users.find(({ id }) => id === userId);
+      return this.users
+        .find(({ id }) => id === userId);
     },
     addComment(payload) {
       const userId = this.users.length + 1;

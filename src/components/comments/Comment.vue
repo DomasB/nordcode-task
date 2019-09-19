@@ -1,6 +1,9 @@
 <template>
   <div class="comment">
-    <div class="profile-image" :style="{backgroundImage: `url(${getImage(user.image)})`}" />
+    <div
+      :style="{ backgroundImage: `url(${getImage(user.image)})` }"
+      class="profile-image"
+    />
     <div class="text-container">
       <div class="user-name">{{user.name}}</div>
       <div class="comment-text">{{comment.text}}</div>
@@ -29,20 +32,24 @@ export default {
   .comment
     display: flex
     padding: 20px 0px
+
   .profile-image
-    width: 100px
-    min-width: 100px
-    height: 100px
+    width: $size-profile-image
+    min-width: $size-profile-image
+    height: $size-profile-image
     border-radius: 50%
     background-position: center center
     background-size: cover
+
   .text-container
     padding: 10px 20px
     text-align: left
+
   .user-name
     font-size: 1em
     font-weight: bold
     padding: 10px 0
+
   .comment-text
     color: $color-grey
     word-break: break-all

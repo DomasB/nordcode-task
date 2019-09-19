@@ -1,16 +1,24 @@
 <template>
   <div>
-    <label class="form-label" :for="name">{{label}}</label>
+    <label
+      :for="name"
+      class="form-label"
+    >
+      {{label}}
+    </label>
     <textarea
       type="text"
       :value="value"
-      @input="$emit('input', $event.target.value)"
       :id="name"
       :placeholder="placeholder"
       rows="6"
+      @input="$emit('input', $event.target.value)"
       :class="{textarea: true, 'error-field': errors[name]}"
     />
-    <div v-if="errors[name]" class="error">
+    <div
+      v-if="errors[name]"
+      class="error"
+    >
       {{errors[name]}}
     </div>
   </div>
@@ -31,6 +39,7 @@ export default {
 
 <style lang="sass">
   @import "@/styles/_mixins.sass"
+
   .textarea
     @include inputGeneric()
     resize: none

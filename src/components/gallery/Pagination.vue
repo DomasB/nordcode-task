@@ -3,9 +3,9 @@
     <div
       v-if="currentPage !== 1"
       tabindex="0"
-      class="pagination-left pagination-navigation"
       @click="navigate(-1)"
       @keyup.enter="navigate(-1)"
+      class="pagination-left pagination-navigation"
     />
     <button
       v-for="page in totalPages"
@@ -21,9 +21,9 @@
     <div
       v-if="currentPage !== totalPages"
       tabindex="0"
-      class="pagination-right pagination-navigation"
       @click="navigate(1)"
       @keyup.enter="navigate(-1)"
+      class="pagination-right pagination-navigation"
     />
   </div>
 </template>
@@ -46,14 +46,16 @@ export default {
 
 <style lang="sass">
   @import "@/styles/_mixins.sass"
+
   .pagination
     display: flex
     flex-direction: row
     justify-content: center
+
   .pagination-button
     cursor: pointer
-    width: 40px
-    height: 40px
+    width: $size-pagination-button
+    height: $size-pagination-button
     border-radius: 20px
     background-color: transparent
     color: $color-grey
@@ -61,27 +63,30 @@ export default {
     font-weight: bold
     border: 3px solid $color-light-grey
     margin: 0 5px
+
   .active-button
     background-color: $color-blue
     border: none
     color: white
+
   .pagination-navigation
     cursor: pointer
-    width: 40px
-    height: 40px
+    width: $size-pagination-button
+    height: $size-pagination-button
+
   .pagination-left
     &:before
       @include triangleCommon()
       top: 10px
       left: 15px
-      border-width: 10.0px 20.0px 10.0px 0
+      border-width: 10px 20px 10px 0
       border-color: transparent $color-blue transparent transparent
+
   .pagination-right
     &:before
       @include triangleCommon()
       top: 10px
       left: 20px
-      border-width: 10.0px 0 10.0px 20.0px
+      border-width: 10px 0 10px 20px
       border-color: transparent transparent transparent $color-blue
-
 </style>

@@ -1,5 +1,8 @@
 <template>
-  <form class="comment-form" @submit="validate">
+  <form
+    @submit="validateAndSumbit"
+    class="comment-form"
+  >
     <InputField
       v-model="userName"
       name="user-name"
@@ -49,7 +52,7 @@ export default {
     };
   },
   methods: {
-    validate(event) {
+    validateAndSumbit(event) {
       const emailRegex = /^[a-zA-Z.]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}$/;
       const isEmailValid = emailRegex.test(this.email);
       const isCommentValid = this.comment.length > 20;
@@ -86,18 +89,23 @@ export default {
 </script>
 
 <style lang="sass">
-.comment-form
+  @import "@/styles/_variables.sass"
+
+  .comment-form
     display: flex
     flex-direction: column
-.input
-  display: flex
-  flex-direction: column
-  text-align: left
-  padding: 5px 0
-.error
-  color: red
-  font-size: 0.7em
-  margin: -6px 5px 6px
-.error-field
-  border-color: red
+
+  .input
+    display: flex
+    flex-direction: column
+    text-align: left
+    padding: 5px 0
+
+  .error
+    color: $color-red
+    font-size: 0.7em
+    margin: -6px 5px 6px
+
+  .error-field
+    border-color: $color-red
 </style>

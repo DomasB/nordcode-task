@@ -1,10 +1,17 @@
 <template>
   <div>
     <router-link :to="`/comments/${image.id}`">
-      <div class="image-square" :style="{backgroundImage: `url(${getImage(image.src)})`}" />
-      <div class="image-title">{{image.name}}</div>
+      <div
+        :style="{ backgroundImage: `url(${getImage(image.src)})` }"
+        class="image-square"
+      />
+      <div class="image-title">
+        {{image.name}}
+      </div>
     </router-link>
-    <div class="image-description">{{image.description}}</div>
+    <div class="image-description">
+      {{image.description}}
+    </div>
   </div>
 </template>
 
@@ -25,18 +32,22 @@ export default {
 
 <style lang="sass">
   @import "@/styles/_variables.sass"
+
   .image-square
-    width: 20vw
-    height: 20vw
+    width: $size-gallery-image
+    height: $size-gallery-image
     background-position: center center
     background-size: cover
+
   a
     text-decoration: none
-    color: black
+    color: $color-black
+
   .image-title
     padding: 0.5em 0
     font-weight: bold
     font-size: 1.08em
+
   .image-description
     color: $color-grey
     font-size: 0.8em
